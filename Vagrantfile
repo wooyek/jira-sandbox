@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
     # config.vm.network "private_network", ip: "10.0.0.1"
 
     config.vm.provider "virtualbox" do |v|
-        v.memory = 6144
+        v.memory = 8192
         v.cpus = 4
     end
 
@@ -20,6 +20,9 @@ Vagrant.configure(2) do |config|
 
     # Bamboo
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8085, guest: 8085
+
+    # Confluence
+    config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8090, guest: 8090
 
     # Bitbucket
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 7990, guest: 7990

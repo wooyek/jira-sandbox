@@ -3,3 +3,5 @@ atlassian-bitbucket-4.0.2-x64.bin
 atlassian-confluence-5.8.13-x64.bin
 atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin
 .vagrant/
+jira-portfolio-1.10.5.jar
+.ssh_key
