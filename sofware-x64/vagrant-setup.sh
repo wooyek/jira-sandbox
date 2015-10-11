@@ -11,7 +11,7 @@ sudo apt-get install -y nginx apache2-utils
 # Change Time Zone
 # dpkg-reconfigure tzdata
 sudo timedatectl set-timezone Europe/Warsaw
-cat .ssh_key >> .ssh/authorized_keys
+cat /vagrant/.ssh_key >> .ssh/authorized_keys
 
 # ======================================
 # PostgreSQL
@@ -46,6 +46,7 @@ echo JAVA_HOME=/usr/lib/jvm/java-8-oracle/ | sudo tee --append /etc/environment
 # Copy files so the installer wont complain about symlinks 
 # not working in /vagrant/ folder when windows a host system
 cp /vagrant/* ./
+
 
 
 # ======================================
@@ -101,3 +102,4 @@ sudo ln -s /home/vagrant/atlassian.conf /etc/nginx/sites-available/atlassian.con
 sudo ln -s /etc/nginx/sites-available/atlassian.conf /etc/nginx/sites-enabled/atlassian.conf
 sudo rm /etc/nginx/sites-enabled/default
 sudo nginx -s reload
+echo '127.0.0.1 dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com' | sudo tee --append /etc/hosts
