@@ -6,7 +6,7 @@ Please download Atlassian software installaction files before running [vagrnat u
 
 ## Domain mapping on host system
 
-To use this sandbox you need to map few domains do localhost. Yoy'll need admin privileges.
+To use this sandbox you'll need to map few domains to localhost. You'll need admin privileges to do this.
 
 On Windows host edit `%SystemRoot%\System32\drivers\etc\hosts` file:
 
@@ -16,9 +16,9 @@ On Linux host edit `/etc/hosts` file:
 
 > 127.0.0.1  localhost dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com
 
-## Run on one domain context paths
+## Run on one domain with context paths
 
-To run services on one domain you'll need to modify tomcat configuration files on installes services. See the [attlasian-in-context.sh](attlasian-in-context.sh) for examples.
+To run services on one domain you'll need to modify Tomcat configuration files on installes services. See the [attlasian-in-context.sh](attlasian-in-context.sh) for examples.
 
 Nginx configuration for this setup is in [atlassian.conf](atlassian.conf).
 
