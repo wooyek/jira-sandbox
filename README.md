@@ -16,7 +16,7 @@ On Linux host edit `/etc/hosts` file:
 
     127.0.0.1  localhost dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com
 
-## Run on one domain with context paths
+### Run on one domain with context paths
 
 To run services on one domain you'll need to modify Tomcat configuration files on installes services. See the [attlasian-in-context.sh](attlasian-in-context.sh) for examples.
 
