@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# JIRA Linux service controller script
+cd "/opt/atlassian/bamboo/bin"
+
+case "$1" in
+    start)
+        ./start-bamboo.sh
+        ;;
+    stop)
+        ./stop-bamboo.sh
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac

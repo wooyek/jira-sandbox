@@ -1,0 +1,12 @@
+#install4j response file for Bitbucket 4.0.2
+#Fri Oct 09 11:38:14 UTC 2015
+launch.application$Boolean=true
+sys.adminRights$Boolean=true
+app.install.service$Boolean=true
+app.defaultInstallDir=/opt/atlassian/bitbucket/4.0.2
+serverPort=8006
+sys.languageId=en
+httpPort=7990
+app.bitbucketHome=/var/atlassian/application-data/bitbucket
+installation.type$Integer=0
+executeLauncherAction$Boolean=true

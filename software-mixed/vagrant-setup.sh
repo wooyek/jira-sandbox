@@ -52,7 +52,7 @@ cp /vagrant/* ./
 # Jira
 # ======================================
 
-sudo ./atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin -q -varfile atlassian-jira.varfile
+sudo ./atlassian-jira-software-7.0.0-jira-7.0.0-x32.bin -q -varfile atlassian-jira.varfile
 
 
 # ======================================
@@ -65,7 +65,7 @@ sudo ./atlassian-bitbucket-4.0.2-x64.bin -q -varfile atlassian-bitbucket.varfile
 # Confluence
 # ======================================
 
-sudo ./atlassian-confluence-5.8.13-x64.bin -q -varfile atlassian-confluence.varfile
+sudo ./atlassian-confluence-5.8.13-x32.bin -q -varfile atlassian-confluence.varfile
 
 
 # ======================================
@@ -91,7 +91,9 @@ sudo echo bamboo.home=/var/atlassian/application-data/bamboo/ | sudo tee --appen
 sudo cp bamboo /etc/init.d/
 sudo chmod +x /etc/init.d/bamboo
 sudo update-rc.d bamboo defaults
-sudo /etc/init.d/bamboo start
+
+# does not work at the moment, use:
+# sudo /opt/atlassian/bamboo/bin/start-bamboo.sh
 
 # ======================================
 # Nginx reverse proxy
