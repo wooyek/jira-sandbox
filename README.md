@@ -14,7 +14,7 @@ On Linux host edit `/etc/hosts` file:
 
 …and place this mapping there:
 
-> 127.0.0.1  localhost dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com
+    127.0.0.1  localhost dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com
 
 ## Run on one domain with context paths
 
