@@ -2,7 +2,7 @@
 
 Playground sandbox for atlassian applications with automated server setup with [vagrant](https://www.vagrantup.com)
 
-Please download Atlassian software installaction files before running `vagrnat up`. See the [sofware-x64download-files.sh](download-files.sh) file.
+Please download Atlassian software installaction files before running [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html). See the [sofware-x64download-files.sh](download-files.sh) file.
 
 ## Domain mapping on host system
 
