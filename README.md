@@ -67,10 +67,16 @@ Each time select testing configuration with built in database for quick configur
 4. http://bamboo.example.com/  
     <a href="http://jira.example.com/"><img src="doc/bamboo-setup.jpg"></a>
 
+## Run on different port than 80
 
+I you have port 80 already taken, you can change port mapping in [Vagrantfile](Vagrantfile) 
+and listening port for Nginx in [atlassian.conf](atlassian.conf), then:
 
-
-
+    ~$ vagrant reload
+    ~$ vagrant ssh full
+    vagrant@jira-sandbox:~$ sudo cp /vagrant/atlassian.conf ./
+    vagrant@jira-sandbox:~$ sudo nginx -s reload
+    
 ## One domain with context paths
 
 There is an experimental support for one domain and setup of all services in context paths like http://localhost/jira.
