@@ -27,7 +27,8 @@ Vagrant.configure(2) do |config|
     end
 
     # Nginx
-    config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8000, guest: 80
+    config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 80, guest: 80
+    config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8000, guest: 8000
 
     # Jira
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8080, guest: 8080

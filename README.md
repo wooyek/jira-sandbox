@@ -46,7 +46,8 @@ See [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html) comma
 
 ## Post setup configuration
  
-After your sandbox virtual machine is up and running, you should be able to access it through these URLs:
+After your sandbox virtual machine is up and running, you should be able to access it through following URLs.
+Each time select testing configuration with built in database for quick configuration.
  
 1. http://jira.example.com/  
     <a href="http://jira.example.com/"><img src="doc/jira-setup.jpg"></a>
@@ -60,7 +61,7 @@ After your sandbox virtual machine is up and running, you should be able to acce
 4. http://bamboo.example.com/  
     <a href="http://jira.example.com/"><img src="doc/bamboo-setup.jpg"></a>
 
-Select testing configuration with built in database for quick configuration.
+
 
 
 

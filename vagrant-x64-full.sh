@@ -55,20 +55,20 @@ cp -r /vagrant/* ./
 # Jira
 # ======================================
 
-sudo ./downloads/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin -q -varfile atlassian-jira.varfile
+sudo ./downloads/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin -q -varfile ../atlassian-jira.varfile
 
 # ======================================
 # Confluence
 # ======================================
 
-sudo ./downloads/atlassian-confluence-5.8.13-x64.bin -q -varfile atlassian-confluence.varfile
+sudo ./downloads/atlassian-confluence-5.8.14-x64.bin -q -varfile ../atlassian-confluence.varfile
 
 
 # ======================================
 # Bitbucket
 # ======================================
 
-sudo ./downloads/atlassian-bitbucket-4.0.2-x64.bin -q -varfile atlassian-bitbucket.varfile
+sudo ./downloads/atlassian-bitbucket-4.0.2-x64.bin -q -varfile ../atlassian-bitbucket.varfile
 
 
 # ======================================
@@ -78,8 +78,8 @@ sudo ./downloads/atlassian-bitbucket-4.0.2-x64.bin -q -varfile atlassian-bitbuck
 #sudo useradd -r -s /bin/false atlassian -c "Service account for Atlassian products"
 sudo useradd -s /bin/false atlassian -c "Service account for Atlassian products"
 sudo mkdir /opt/atlassian/bamboo/
-sudo tar -xzvf atlassian-bamboo-5.9.4.tar.gz --directory /opt/atlassian/bamboo/ --strip-components=1
-s
+sudo tar -xzvf ./downloads/atlassian-bamboo-5.9.4.tar.gz --directory /opt/atlassian/bamboo/ --strip-components=1
+
 # This is stupid, but for now must do
 # https://confluence.atlassian.com/bamboo/running-bamboo-as-a-linux-service-416056046.html	
 sudo chown atlassian /opt/atlassian/bamboo
