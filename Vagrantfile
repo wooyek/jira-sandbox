@@ -4,12 +4,26 @@
 Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/trusty64"
     config.vm.hostname = "jira-sandbox"
-    config.vm.provision "shell", path: "vagrant-x64.sh"
-    # config.vm.network "private_network", ip: "10.0.0.1"
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 8192
         v.cpus = 4
+    end
+
+    config.vm.define "full" do |guest|
+        guest.vm.provision "shell", path: "vagrant-x64-full.sh"
+        guest.vm.provider "virtualbox" do |v|
+            v.memory = 8192
+            v.cpus = 4
+        end
+    end
+
+    config.vm.define "testing" do |guest|
+        guest.vm.provision "shell", path: "vagrant-x64-testing.sh"
+        guest.vm.provider "virtualbox" do |v|
+            v.memory = 4096
+            v.cpus = 4
+        end
     end
 
     # Nginx
