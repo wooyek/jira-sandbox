@@ -1,10 +1,26 @@
 # jira-sandbox
 
-Playground sandbox for atlassian applications with automated server setup with [vagrant](https://www.vagrantup.com)
+Playground sandbox for Atlassian applications with automated server setup with [vagrant](https://www.vagrantup.com)
 
-Please download Atlassian software installaction files before running [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html). See the [sofware-x64download-files.sh](download-files.sh) file.
+## Prerequisites
 
-## Domain mapping on host system
+Before you can enjoy quick virtual machine provisioning you need to manually install 
+[VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/) 
+
+https://www.virtualbox.org/
+https://www.vagrantup.com/
+
+Please download Atlassian software installation files
+and put them in [downloads](downloads) folder:
+
+1. [atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin](https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin)
+1. [atlassian-confluence-5.8.14-x64.bin](https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-5.8.14-x64.bin)
+2. [atlassian-bitbucket-4.0.2-x64.bin](https://www.atlassian.com/software/stash/downloads/binary/atlassian-bitbucket-4.0.2-x64.bin)
+4. [atlassian-bamboo-5.9.4.tar.gz](https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-5.9.4.tar.gz)
+
+You can download them with [download-x64.sh](download-x64.sh) script.
+
+## Sub domain mapping on host system
 
 To use this sandbox you'll need to map few domains to localhost. You'll need admin privileges to do this.
 
@@ -12,14 +28,32 @@ On Windows host edit `%SystemRoot%\System32\drivers\etc\hosts` file:
 
 On Linux host edit `/etc/hosts` file:
 
-…and place this mapping there:
+…and place following mapping there:
 
     127.0.0.1  localhost dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com
 
-### Run on one domain with context paths
+## Virtual machine provisioning
 
-To run services on one domain you'll need to modify Tomcat configuration files on installes services. See the [attlasian-in-context.sh](attlasian-in-context.sh) for examples.
+To finish setting up this sandbox run:
 
-Nginx configuration for this setup is in [atlassian.conf](atlassian.conf).
+    jira-sandbox$ vagrant up full
+    
+or
+    
+    jira-sandbox$ vagrant up testing
+    
+Se [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html) command description for more details. 
 
-Please bare in mind that you'll problaby run into issues with Bitbucket as [cookies can be overwritten by different services](https://confluence.atlassian.com/display/BitbucketServerKB/XSRF+Security+Token+Missing).
+
+
+### One domain with context paths
+
+There is an experimental support for one domain and setup of all services in context paths like http://localhost/jira.
+
+To run services on one domain you'll need to modify Tomcat configuration files on installes services. See the [attlasian-one-domain.sh](attlasian-one-domain.sh) for examples.
+
+Nginx configuration for this setup is in [atlassian-one-domain.conf](atlassian-one-domain.conf).
+
+Please bare in mind that you'll problaby run into issues with Bitbucket 
+as [cookies can be overwritten by different services](https://confluence.atlassian.com/display/BitbucketServerKB/XSRF+Security+Token+Missing).
+ 
