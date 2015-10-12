@@ -42,11 +42,29 @@ or
     
     jira-sandbox$ vagrant up testing
     
-Se [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html) command description for more details. 
+See [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html) command description for more details. 
+
+## Post setup configuration
+ 
+After your sandbox virtual machine is up and running, you should be able to access it through these URLs:
+ 
+1. http://jira.example.com/  
+    <a href="http://jira.example.com/"><img src="doc/jira-setup.jpg"></a>
+    
+2. http://confluence.example.com/  
+    <a href="http://jira.example.com/"><img src="doc/confluence-setup.jpg"></a>
+    
+3. http://bitbucket.example.com/  
+    <a href="http://jira.example.com/"><img src="doc/bitbucket-setup.jpg"></a>
+
+4. http://bamboo.example.com/  
+    <a href="http://jira.example.com/"><img src="doc/bamboo-setup.jpg"></a>
+
+Select testing configuration with built in database for quick configuration.
 
 
 
-### One domain with context paths
+## One domain with context paths
 
 There is an experimental support for one domain and setup of all services in context paths like http://localhost/jira.
 
