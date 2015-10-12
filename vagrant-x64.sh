@@ -48,7 +48,6 @@ echo JAVA_HOME=/usr/lib/jvm/java-8-oracle/ | sudo tee --append /etc/environment
 cp /vagrant/* ./
 
 
-
 # ======================================
 # Jira
 # ======================================
