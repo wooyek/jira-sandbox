@@ -1,14 +1,20 @@
 # jira-sandbox
 
-Playground sandbox for Atlassian applications with automated server setup with [vagrant](https://www.vagrantup.com)
+Playground sandbox for Atlassian applications with automated server setup with [vagrant](https://www.vagrantup.com). 
+If you have all prerequisite tools installed you should get sandbox running in 3 steps:
+
+    ~$ git clone https://github.com/wooyek/jira-sandbox.git
+    ~$ cd jira-sandbox/
+    ~/jira-sandbox$ vagrant up full
 
 ## Prerequisites
 
 Before you can enjoy quick virtual machine provisioning you need to manually install 
 [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/) 
 
-https://www.virtualbox.org/
-https://www.vagrantup.com/
+- https://www.virtualbox.org/
+- https://www.vagrantup.com/
+- https://git-scm.com/downloads
 
 Please download Atlassian software installation files
 and put them in [downloads](downloads) folder:
