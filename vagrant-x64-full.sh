@@ -62,6 +62,7 @@ sudo ./downloads/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin -q -varfile ..
 # ======================================
 
 sudo ./downloads/atlassian-confluence-5.8.14-x64.bin -q -varfile ../atlassian-confluence.varfile
+sudo chown confluence /var/atlassian/application-data/confluence/
 
 
 # ======================================
@@ -69,6 +70,7 @@ sudo ./downloads/atlassian-confluence-5.8.14-x64.bin -q -varfile ../atlassian-co
 # ======================================
 
 sudo ./downloads/atlassian-bitbucket-4.0.2-x64.bin -q -varfile ../atlassian-bitbucket.varfile
+sudo chown atlbitbucket /var/atlassian/application-data/bitbucket/
 
 
 # ======================================
