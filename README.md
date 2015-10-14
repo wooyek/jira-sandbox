@@ -58,8 +58,10 @@ Each time select testing configuration with built in database for quick configur
 1. http://jira.example.com/  
     <a href="http://jira.example.com/"><img src="doc/jira-setup.jpg"></a>
     
-2. http://confluence.example.com/  
+2. http://confluence.example.com/
+    During setting up user managment with JIRA user `jira-software-users` instead of `jira-users`.
     <a href="http://jira.example.com/"><img src="doc/confluence-setup.jpg"></a>
+    
     
 3. http://bitbucket.example.com/  
     <a href="http://jira.example.com/"><img src="doc/bitbucket-setup.jpg"></a>

@@ -26,6 +26,14 @@ Vagrant.configure(2) do |config|
         end
     end
 
+    config.vm.define "jira6" do |guest|
+        guest.vm.provision "shell", path: "vagrant-x64-jira6.sh"
+        guest.vm.provider "virtualbox" do |v|
+            v.memory = 4096
+            v.cpus = 4
+        end
+    end
+
     # Nginx
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 80, guest: 80
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8000, guest: 8000
