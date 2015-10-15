@@ -5,6 +5,11 @@ Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/trusty64"
     config.vm.hostname = "jira-sandbox"
 
+    # Example proxy settings
+    # config.proxy.http     = "http://10.56.3.1:8080"
+    # config.proxy.https    = "http://10.56.3.1:8080"
+    # config.proxy.no_proxy = "localhost,127.0.0.1"
+
     config.vm.provider "virtualbox" do |v|
         v.memory = 8192
         v.cpus = 4
