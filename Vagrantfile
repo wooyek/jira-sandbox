@@ -39,6 +39,14 @@ Vagrant.configure(2) do |config|
         end
     end
 
+    config.vm.define "basic" do |guest|
+        guest.vm.provision "shell", path: "vagrant-x64-basic.sh"
+        guest.vm.provider "virtualbox" do |v|
+            v.memory = 2048
+            v.cpus = 2
+        end
+    end
+
     # Nginx
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 80, guest: 80
     config.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8000, guest: 8000
