@@ -49,7 +49,7 @@ Vagrant.configure(2) do |config|
     config.vm.define "jsd" do |guest|
         guest.vm.hostname = "jsd.example.com"
         guest.vm.network "private_network", ip: "10.0.0.2"
-        guest.vm.provision "shell", path: "vagrant-x64-basic.sh"
+        guest.vm.provision "shell", path: "vagrant-x64-jsd.sh"
         guest.vm.provider "virtualbox" do |v|
             v.memory = 2048
             v.cpus = 2
