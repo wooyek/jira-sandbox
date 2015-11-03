@@ -84,6 +84,9 @@ Vagrant.configure(2) do |config|
             v.cpus = 4
         end
 
+        # Nginx
+        guest.vm.network "forwarded_port", host: 80, guest: 80
+
         # Jira
         guest.vm.network "forwarded_port", host_ip: "127.0.0.1", host: 8080, guest: 8080
 
