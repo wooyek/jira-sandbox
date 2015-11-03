@@ -2,4 +2,6 @@ wget --no-check-certificate -P ./downloads https://www.atlassian.com/software/ji
 wget --no-check-certificate -P ./downloads https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-5.8.14-x64.bin
 wget --no-check-certificate -P ./downloads https://www.atlassian.com/software/stash/downloads/binary/atlassian-bitbucket-4.0.2-x64.bin
 wget --no-check-certificate -P ./downloads https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-5.9.4.tar.gz
+wget --no-check-certificate -P ./downloads https://www.atlassian.com/software/crowd/downloads/binary/atlassian-crowd-2.8.3.tar.gz
 wget --no-check-certificate -P ./downloads https://marketplace.atlassian.com/download/plugins/com.radiantminds.roadmaps-jira/version/11050 -O jira-portfolio-1.10.5.jar
+wget --no-check-certificate -P ./downloads https://jdbc.postgresql.org/download/postgresql-9.4-1204.jdbc42.jar

@@ -20,10 +20,13 @@ cat /vagrant/.ssh_key >> .ssh/authorized_keys
 # PostgreSQL
 # ======================================
 
-# sudo apt-get install -y postgresql postgresql-contrib libpq-dev
-# sudo -u postgres createuser jira_user --no-createdb --no-superuser --no-createrole
-# sudo -u postgres createdb jira_db
-# sudo -u postgres psql -c "ALTER USER jira_user WITH PASSWORD 'with#conversation@edge^shade'"
+# https://confluence.atlassian.com/jira/connecting-jira-to-postgresql-185729433.html#ConnectingJIRAtoPostgreSQL-1.CreateandconfigurethePostgreSQLdatabase
+#sudo apt-get install -y postgresql postgresql-contrib libpq-dev
+#sudo -u postgres psql -c "CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;"
+#sudo -u postgres createuser jiradbuser --no-createdb --no-superuser --no-createrole
+#sudo -u postgres psql -c "ALTER USER jiradbuser WITH PASSWORD 'outside produce feature supply"
+#sudo -u postgres psql -c "ALTER USER jiradbuser WITH SUPERUSER"
+# The above is un secure but i'm not a DBA and for now it must do
 
 # For interactive managment use
 # sudo -i -u postgres
@@ -56,6 +59,7 @@ cp -r /vagrant/* ./
 # ======================================
 
 sudo ./downloads/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin -q -varfile ../atlassian-jira.varfile
+sudo cp ./downloads/postgresql-9.4-1204.jdbc42.jar /opt/atlassian/jira/lib/
 
 # ======================================
 # Confluence
@@ -73,4 +77,15 @@ sudo ln -s /home/vagrant/atlassian.conf /etc/nginx/sites-available/atlassian.con
 sudo ln -s /etc/nginx/sites-available/atlassian.conf /etc/nginx/sites-enabled/atlassian.conf
 sudo rm /etc/nginx/sites-enabled/default
 sudo nginx -s reload
-echo '127.0.0.1 dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com' | sudo tee --append /etc/hosts
+sudo cat /vagrant/hosts.txt | sudo tee --append /etc/hosts
+
+# ======================================
+# Postfix
+# ======================================
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04
+# This will popup a console setup wizard
+#sudo apt-get -y install postfix mailutils
+#echo 'inet_interfaces = loopback-only' | sudo tee --append /etc/postfix/main.cf
+#sudo service postfix restart
+

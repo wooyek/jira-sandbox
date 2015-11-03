@@ -20,10 +20,13 @@ cat /vagrant/.ssh_key >> .ssh/authorized_keys
 # PostgreSQL
 # ======================================
 
-# sudo apt-get install -y postgresql postgresql-contrib libpq-dev
-# sudo -u postgres createuser jira_user --no-createdb --no-superuser --no-createrole
-# sudo -u postgres createdb jira_db
-# sudo -u postgres psql -c "ALTER USER jira_user WITH PASSWORD 'with#conversation@edge^shade'"
+# https://confluence.atlassian.com/jira/connecting-jira-to-postgresql-185729433.html#ConnectingJIRAtoPostgreSQL-1.CreateandconfigurethePostgreSQLdatabase
+#sudo apt-get install -y postgresql postgresql-contrib libpq-dev
+#sudo -u postgres psql -c "CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;"
+#sudo -u postgres createuser jiradbuser --no-createdb --no-superuser --no-createrole
+#sudo -u postgres psql -c "ALTER USER jiradbuser WITH PASSWORD 'outside produce feature supply"
+#sudo -u postgres psql -c "ALTER USER jiradbuser WITH SUPERUSER"
+# The above is un secure but i'm not a DBA and for now it must do
 
 # For interactive managment use
 # sudo -i -u postgres
@@ -56,6 +59,7 @@ cp -r /vagrant/* ./
 # ======================================
 
 sudo ./downloads/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin -q -varfile ../atlassian-jira.varfile
+sudo cp ./downloads/postgresql-9.4-1204.jdbc42.jar /opt/atlassian/jira/lib/
 
 # ======================================
 # Confluence
@@ -99,6 +103,38 @@ sudo update-rc.d bamboo defaults
 sudo /etc/init.d/bamboo start
 
 # ======================================
+# Crowd
+# ======================================
+
+INSTALL_BASE="/opt/atlassian/crowd"
+CROWD_HOME="/var/atlassian/application-data/crowd"
+sudo mkdir ${INSTALL_BASE}
+sudo chown -R atlassian /opt/atlassian/crowd
+sudo tar -xzvf ./downloads/atlassian-crowd-2.8.3.tar.gz --directory /opt/atlassian/crowd/ --strip-components=1
+sudo echo crowd.home=/var/atlassian/application-data/crowd/ | sudo tee --append /opt/atlassian/crowd/crowd-webapp/WEB-INF/classes/crowd-init.properties
+
+# https://confluence.atlassian.com/display/CROWD/Setting+Crowd+to+Run+Automatically+and+Use+an+Unprivileged+System+User+on+UNIX
+sudo useradd -s /bin/false crowd -c "Service account for Atlassian Crowd products"
+CROWD_USER="crowd"
+CROWD_GROUP="crowd"
+sudo chgrp ${CROWD_GROUP} ${INSTALL_BASE}/{*.sh,apache-tomcat/bin/*.sh}
+sudo chmod g+x ${INSTALL_BASE}/{*.sh,apache-tomcat/bin/*.sh}
+sudo chown -R ${CROWD_USER} ${CROWD_HOME} ${INSTALL_BASE}/apache-tomcat/{logs,work,temp}
+sudo touch -a ${INSTALL_BASE}/atlassian-crowd-openid-server.log
+sudo mkdir ${INSTALL_BASE}/database
+sudo chown -R ${CROWD_USER} ${INSTALL_BASE}/{database,atlassian-crowd-openid-server.log}
+
+
+
+# Service script for bamboo
+# https://confluence.atlassian.com/bamboo/running-bamboo-as-a-linux-service-416056046.html
+sudo cp crowd /etc/init.d/
+sudo chmod +x /etc/init.d/crowd
+sudo update-rc.d crowd defaults
+sudo /etc/init.d/crowd start
+
+
+# ======================================
 # Nginx reverse proxy
 # ======================================
 
@@ -106,4 +142,15 @@ sudo ln -s /home/vagrant/atlassian.conf /etc/nginx/sites-available/atlassian.con
 sudo ln -s /etc/nginx/sites-available/atlassian.conf /etc/nginx/sites-enabled/atlassian.conf
 sudo rm /etc/nginx/sites-enabled/default
 sudo nginx -s reload
-echo '127.0.0.1 dev.example.com jira.example.com bamboo.example.com confluence.example.com bitbucket.example.com' | sudo tee --append /etc/hosts
+sudo cat /vagrant/hosts.txt | sudo tee --append /etc/hosts
+
+# ======================================
+# Postfix
+# ======================================
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04
+# This will popup a console setup wizard
+#sudo apt-get -y install postfix mailutils
+#echo 'inet_interfaces = loopback-only' | sudo tee --append /etc/postfix/main.cf
+#sudo service postfix restart
+
