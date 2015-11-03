@@ -90,3 +90,10 @@ Nginx configuration for this setup is in [atlassian-one-domain.conf](atlassian-o
 Please bare in mind that you'll problaby run into issues with Bitbucket 
 as [cookies can be overwritten by different services](https://confluence.atlassian.com/display/BitbucketServerKB/XSRF+Security+Token+Missing).
  
+## Environment update
+
+When you want re-provision the environment use these commands:
+
+    ~/jira-sandbox$ git pull origin master
+    ~/jira-sandbox$ vagrant destroy basic
+    ~/jira-sandbox$ vagrant up basic

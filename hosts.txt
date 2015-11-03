@@ -1,0 +1,6 @@
+10.0.0.1 jira.example.com
+10.0.0.1 bamboo.example.com
+10.0.0.1 confluence.example.com
+10.0.0.1 bitbucket.example.com
+10.0.0.1 crowd.example.com
+10.0.0.2 jsd.example.com
