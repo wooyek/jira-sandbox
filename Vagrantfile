@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
 
     config.vm.define "full" do |guest|
         guest.vm.hostname = "jira.example.com"
-        guest.vm.network "private_network", ip: "10.0.0.1"
+        guest.vm.network "public_network"
         guest.vm.provision "shell", path: "vagrant-x64-full.sh"
         guest.vm.provider "virtualbox" do |v|
             v.memory = 14336
