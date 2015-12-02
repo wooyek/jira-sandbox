@@ -3,6 +3,8 @@
 # System update and common utilities
 # ======================================
 
+cat /vagrant/.ssh_key >> .ssh/authorized_keys
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install -y htop git unzip
@@ -13,7 +15,6 @@ sudo apt-get install -y nginx apache2-utils
 # Change Time Zone
 # dpkg-reconfigure tzdata
 sudo timedatectl set-timezone Europe/Warsaw
-cat /vagrant/.ssh_key >> .ssh/authorized_keys
 
 
 # ======================================
@@ -22,9 +23,9 @@ cat /vagrant/.ssh_key >> .ssh/authorized_keys
 
 # https://confluence.atlassian.com/jira/connecting-jira-to-postgresql-185729433.html#ConnectingJIRAtoPostgreSQL-1.CreateandconfigurethePostgreSQLdatabase
 #sudo apt-get install -y postgresql postgresql-contrib libpq-dev
-#sudo -u postgres psql -c "CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;"
 #sudo -u postgres createuser jiradbuser --no-createdb --no-superuser --no-createrole
 #sudo -u postgres psql -c "ALTER USER jiradbuser WITH PASSWORD 'outside produce feature supply"
+#sudo -u postgres psql -c "CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;"
 #sudo -u postgres psql -c "ALTER USER jiradbuser WITH SUPERUSER"
 # The above is un secure but i'm not a DBA and for now it must do
 

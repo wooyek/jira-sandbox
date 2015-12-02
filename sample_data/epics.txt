@@ -1,0 +1,28 @@
+Group membership
+Authorization module
+Authentication
+Access revocation
+E-commerce payment support
+Next day national transfers 
+Same day national transfers
+Real time national transfers
+Economy international transfers
+Premium international transfers
+Real time international transfers
+Transfer history based limit signal
+Transfer history destination signal
+Transfer history location signal
+Transfer history device signal
+SMS transfer info
+Outbound call transfer confirmation
+Transfer history
+Access history
+Premium services usage
+Foreign services usage
+Foreign services subscription
+Invoice generation
+Invoice delivery confirmation
+Document upload 
+Electronic signature 
+Document OCR
+Full text search 
