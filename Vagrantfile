@@ -5,8 +5,8 @@ Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/trusty64"
 
     # Example proxy settings
-    config.proxy.http     = "http://10.56.3.1:8080"
-    config.proxy.https    = "http://10.56.3.1:8080"
+    # config.proxy.http     = "http://10.56.3.1:8080"
+    # config.proxy.https    = "http://10.56.3.1:8080"
     config.proxy.no_proxy = "localhost,127.0.0.1"
 
     config.vm.provider "virtualbox" do |v|
@@ -19,8 +19,8 @@ Vagrant.configure(2) do |config|
         guest.vm.network "public_network"
         guest.vm.provision "shell", path: "vagrant-x64-full.sh"
         guest.vm.provider "virtualbox" do |v|
-            v.memory = 14336
-            v.cpus = 6
+            v.memory = 8192
+            v.cpus = 4
         end
 
         # Nginx
