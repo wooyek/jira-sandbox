@@ -45,6 +45,7 @@ and put them in [downloads](downloads) folder:
 You can download them with [download-x64.sh](download-x64.sh) script. Or manually
 
 1. [atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin](https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.0.0-jira-7.0.0-x64.bin)
+2. [atlassian-servicedesk-3.0.0-jira-7.0.0-x64.bin](https://www.atlassian.com/software/jira/downloads/binary/atlassian-servicedesk-3.0.0-jira-7.0.0-x64.bin)
 1. [atlassian-confluence-5.8.14-x64.bin](https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-5.8.14-x64.bin)
 2. [atlassian-bitbucket-4.0.2-x64.bin](https://www.atlassian.com/software/stash/downloads/binary/atlassian-bitbucket-4.0.2-x64.bin)
 4. [atlassian-bamboo-5.9.4.tar.gz](https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-5.9.4.tar.gz)
