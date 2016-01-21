@@ -15,7 +15,7 @@ sudo apt-get install -y nginx apache2-utils
 # Change Time Zone
 # dpkg-reconfigure tzdata
 sudo timedatectl set-timezone Europe/Warsaw
-
+sudo updatedb
 
 # ======================================
 # PostgreSQL
@@ -66,9 +66,19 @@ sudo cp ./downloads/postgresql-9.4-1204.jdbc42.jar /opt/atlassian/jira/lib/
 # Confluence
 # ======================================
 
-sudo ./downloads/atlassian-confluence-5.8.14-x64.bin -q -varfile ../atlassian-confluence.varfile
+sudo ./downloads/atlassian-confluence-5.9.2-x64.bin -q -varfile ../atlassian-confluence.varfile
 sudo chown confluence /var/atlassian/application-data/confluence/
 
+# https://confluence.atlassian.com/display/CONFKB/Confluence+does+not+start+due+to+Spring+Application+context+has+not+been+set
+sudo chown -R confluence.confluence /opt/atlassian/confluence/
+sudo chown -R confluence.confluence /var/atlassian/application-data/confluence/
+sudo chmod -R u=rwX,go-rwx /opt/atlassian/confluence/
+sudo chmod -R u=rwX,go-rwx /var/atlassian/application-data/confluence/
+
+# troubleshooting
+# https://confluence.atlassian.com/pages/viewpage.action?pageId=179443224
+# https://confluence.atlassian.com/display/CONFKB/Could+not+resolve+placeholder+localHome
+# https://answers.atlassian.com/questions/22644730/unable-to-setup-confluence-questions
 
 # ======================================
 # Bitbucket

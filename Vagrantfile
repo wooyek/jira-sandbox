@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
     # Example proxy settings
     # config.proxy.http     = "http://10.56.3.1:8080"
     # config.proxy.https    = "http://10.56.3.1:8080"
-    config.proxy.no_proxy = "localhost,127.0.0.1"
+    # config.proxy.no_proxy = "localhost,127.0.0.1"
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 8192
@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
 
     config.vm.define "full" do |guest|
         guest.vm.hostname = "jira.example.com"
-        guest.vm.network "public_network"
+        guest.vm.network "private_network", ip: "10.0.0.1"
         guest.vm.provision "shell", path: "vagrant-x64-full.sh"
         guest.vm.provider "virtualbox" do |v|
             v.memory = 8192
