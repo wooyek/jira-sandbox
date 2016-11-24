@@ -70,7 +70,7 @@ or
     
     jira-sandbox$ vagrant up testing
     
-See [vagrnat up](https://docs.vagrantup.com/v2/getting-started/index.html) command description for more details. 
+See [vagrant up](https://docs.vagrantup.com/v2/getting-started/index.html) command description for more details. 
 
 ## Post setup configuration
  
