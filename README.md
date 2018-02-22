@@ -14,7 +14,7 @@ The aim of this project is to get a sandbox running in 3 steps:
 Before you can enjoy quick virtual machine provisioning you need to install 
 [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/) 
 
-On widnows please open an **administrative** cmd.exe command prompt and run these commands there
+On Windows machines, please open an **administrative** `cmd.exe` command prompt (Right click cmd, Run As Administrator) and run these commands there:
 
     @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     choco install git
@@ -25,7 +25,7 @@ On widnows please open an **administrative** cmd.exe command prompt and run thes
 
 ### Manual install 
 
-If you like to have total control over what and how software is intalled on your machine, please install there manually:
+If you like to have total control over what and how software is installed on your machine, please install the below software manually:
 
 - https://www.virtualbox.org
 - https://www.vagrantup.com
@@ -33,7 +33,7 @@ If you like to have total control over what and how software is intalled on your
 
 I you want to have an ssh access to the virtual machine you should install [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 on windows. 
-On linux you should have an `ssh` tool installed by default.  
+On linux (or mac), you just need to use the terminal and start typing SSH commands.
 
 - http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html 
 
@@ -54,9 +54,9 @@ You can download them with [download-x64.sh](download-x64.sh) script. Or manuall
 
 To use this sandbox you'll need to map few domains to VM private network IPs. You'll need admin privileges to do this.
 
-On Windows host edit `%SystemRoot%\System32\drivers\etc\hosts` file:
+On Windows host edit `%SystemRoot%\System32\drivers\etc\hosts` file. You can use Notepad by right clicking and using Run As Admin.
 
-On Linux host edit `/etc/hosts` file:
+On Linux host edit `/etc/hosts` file.
 
 …and append it with contents of [hosts.txt](hosts.txt) file.
 
